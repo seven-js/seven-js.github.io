@@ -44,7 +44,7 @@
                         77777                        7777            777777777777777              77777777777777                       
 </pre>
             <h2 class="title" id="blurb">The multi-platform, multi-language library that brings good luck</h2>
-            <p>
+            <p id="description">
                 You're probably familiar with the idea of magic numbers. They are numbers that appear in your code thanks to magic. There are many, many kinds of magic numbers
                 <ul id="kindList">
                     <li>natural numbers</li>
@@ -68,30 +68,64 @@
                     <li>the number 7</li>
                     <li>machine code</li>
                 </ul>
-
+            </p>
+            <p id="description2">
                 Some magic numbers make your program run faster, and some make it run slower. Others may cause you to make more typos or make demons fly out of your nose. You may not always know what these numbers do. Too bad. We know the truth. And we're not telling you. Because you cannot handle the truth.
-                
-                Instead, we made a library full of magic numbers!
 
+                Instead, we made a library full of magic numbers!
             </p>
             <script type="text/javascript">
                 let kindList = document.getElementById("kindList").getElementsByTagName("li");
                 let kindText = [];
                 for (let i = 0; i < kindList.length; i++) {
                     kindText[i] = kindList[i].innerHTML;
+                    kindList[i].style = 'font: bold 16px Courier New'
                 }
                 let phase = 0;
                 function updateKind() {
 
                     for (let i = 0; i < kindList.length; i++) {
                         let length = 25 + (Math.sin(phase + i * Math.PI / 12) * 25) + 1;
-                        kindList[i].innerHTML = '-'.repeat(length) + kindText[i];
+                        var line = '-'.repeat(length) + kindText[i];
+                        kindList[i].innerHTML = line + '-'.repeat(100 - line.length);
                     }
-                    phase += 1/60;
+                    phase += 1/120;
                     window.requestAnimationFrame(updateKind);
                 }
                 updateKind();
 
+                let description = document.getElementById('description');
+                let description2 = document.getElementById('description2');
+                let descriptionText = description.innerHTML;
+                let descriptionText2 = description2.innerHTML;
+                let descriptionTick = 0;
+                function updateDescription() {
+                    descriptionTick++;
+                    switch ((descriptionTick / 15) % 5) {
+                        case 0:
+                            description.innerHTML = descriptionText;
+                            description2.innerHTML = descriptionText2;
+                            break;
+                        case 1:
+                            description.innerHTML = descriptionText.replace(/magic/g, 'agicm');
+                            description2.innerHTML = descriptionText2.replace(/magic/g, 'agicm');
+                            break;
+                        case 2:
+                            description.innerHTML = descriptionText.replace(/magic/g, 'gicma');
+                            description2.innerHTML = descriptionText2.replace(/magic/g, 'gicma');
+                            break;
+                        case 3:
+                            description.innerHTML = descriptionText.replace(/magic/g, 'icmag');
+                            description2.innerHTML = descriptionText2.replace(/magic/g, 'icmag');
+                            break;
+                        case 4:
+                            description.innerHTML = descriptionText.replace(/magic/g, 'cmagi');
+                            description2.innerHTML = descriptionText2.replace(/magic/g, 'cmagi');
+                            break;
+                    }
+                    window.requestAnimationFrame(updateDescription);
+                }
+                updateDescription();
                 let blurb = document.getElementById("blurb");
                 let blurbText = blurb.innerHTML;
                 let blurbTick = 0;
