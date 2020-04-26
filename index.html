@@ -23,25 +23,25 @@
         </div>
         <div>
             <h1 class="title">Seven.JS</h1>
-            <pre>
-77777777777777777777777777777777              77777777777777777777777777777777
-77777777777777777777777777777777              77777777777777777777777777777777
-                           77777              
-                        77777                 
-                      77777                   
-                    77777                     
-                  77777                       
-                  77777                       
-                77777                              
-                77777                       
-              77777                       
-              77777                       
-             77777                       
-            77777                       
-           77777                       
-          77777                      7777 
-         77777                      777777
-        77777                        7777
+            <pre id="banner">
+                77777777777777777777777777777777                           777777777777777            7777777777777                    
+                77777777777777777777777777777777                           777777777777777          7777777777777777777                
+                                           77777                                      7777         7777                                
+                                        77777                                         7777        7777                                 
+                                      77777                                           7777       7777                                  
+                                    77777                                             7777       7777                                  
+                                  77777                                               7777       7777                                  
+                                  77777                                               7777        7777                                 
+                                77777                                                 7777         77777777777777777                   
+                                77777                                                 7777          777777777777777777                 
+                              77777                                                   7777                         7777                
+                              77777                             7777                  7777                         7777                
+                             77777                              7777                  7777                        7777                 
+                            77777                                7777                7777                        7777                  
+                           77777                                 7777               7777                        7777                   
+                          77777                      7777         7777             7777                       7777                     
+                         77777                      777777         7777777777777777777            77777777777777                       
+                        77777                        7777            777777777777777              77777777777777                       
 </pre>
             <h2 class="title" id="blurb">The multi-platform, multi-language library that brings good luck</h2>
             <p>
@@ -106,11 +106,49 @@
                     } else {
                         blurb.innerHTML = blurbText;
                     }
-
-                    
                 }
                 updateBlurb();
 
+
+                let banner = document.getElementById("banner");
+                let bannerText = banner.innerHTML;
+                let lines = bannerText.split('\n');
+                let height = lines.length;
+                let width = lines[0].length;
+                let bannerTextLength = bannerText.length;
+                console.log(bannerText.length);
+                console.log(width);
+                console.log(height);
+                let particles = [];
+                function Particle(xPos, yPos, xVel) {
+                    this.xPos = xPos;
+                    this.yPos = yPos;
+                    this.xVel = xVel;
+                    this.active = true;
+                    this.update = () => {
+                        this.xPos += this.xVel / 30;
+                        this.xVel -= Math.sign(this.xVel);
+                        this.active = Math.abs(this.xVel) > 1 && (this.yPos * width + this.xPos) < bannerTextLength;
+                    }
+                }
+                function updateBanner() {
+                    particles.forEach(p => p.update());
+                    particles = particles.filter(p => p.active);
+                    var limit = Math.min(255, particles.length + 5);
+                    for (let i = particles.length; i < limit; i++) {
+                        var left = Math.random() < 0.5;
+                        var speed = Math.random() * 45 + 30;
+                        particles.push(new Particle(left ? 0 : width - 1, Math.floor(Math.random() * height), left ? speed : -speed))
+                    }
+                    let charArray = lines.map(line => line.split(''));
+                    for (let i = 0; i < particles.length; i++) {
+                        let p = particles[i];
+                        charArray[p.yPos][Math.floor(p.xPos)] = '7';
+                    }
+                    banner.innerHTML = charArray.slice(0, height - 1).map(line => line.join('')).join('\n');
+                    window.requestAnimationFrame(updateBanner);
+                }
+                updateBanner();
 
 
             </script>
