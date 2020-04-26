@@ -3,27 +3,19 @@
 
 <head>
     <title>Home - Seven.JS</title>
-    <style>
-        
-        .title {
-            font: bold 24px Roboto
-        }
-        .desc {
-            font: 18px Roboto
-        }
-    </style>
+    <link rel='stylesheet' href='style.css' />
 </head>
 
 <body>
     <div>
         <div>
-            <a href='about.html'><img style="max-height:40px" src='Seven.png'> <span>About</span></a>
-            <a href='gettingstarted.html'>Get Started</a>
-            <a href='faq.html'>FAQ</a>
+            <a href='index.html' class="desc"><img style="max-height:40px" src='Seven.png'> <span>About</span></a>
+            <a href='magicnumbers.html' class="desc">Magic Numbers</a>
+            <a href='faq.html' class="desc">FAQ</a>
         </div>
         <div>
-            <h1 class="title">Seven.JS</h1>
-            <pre id="banner">
+            <h1 class="title">Home - Seven.JS</h1>
+            <pre id="banner" style="font: 16px Consolas">
                 77777777777777777777777777777777                           777777777777777            7777777777777                    
                 77777777777777777777777777777777                           777777777777777          7777777777777777777                
                                            77777                                      7777         7777                                
@@ -43,9 +35,9 @@
                          77777                      777777         7777777777777777777            77777777777777                       
                         77777                        7777            777777777777777              77777777777777                       
 </pre>
-            <h2 class="title" id="blurb">The multi-platform, multi-language library that brings good luck</h2>
+            <h2 class="title2" id="blurb">The multi-platform, multi-language library that brings good luck</h2>
             <p id="description">
-                You're probably familiar with the idea of magic numbers. They are numbers that appear in your code thanks to magic. There are many, many kinds of magic numbers
+                You're probably familiar with the idea of magic numbers. They are numbers that appear in your code thanks to magic. Due to their otherworldly nature, they have no names. There are many, many kinds of magic numbers
                 <ul id="kindList">
                     <li>natural numbers</li>
                     <li>whole numbers</li>
@@ -70,9 +62,35 @@
                 </ul>
             </p>
             <p id="description2">
-                Some magic numbers make your program run faster, and some make it run slower. Others may cause you to make more typos or make demons fly out of your nose. You may not always know what these numbers do. Too bad. We know the truth. And we're not telling you. Because mortals like you cannot handle the truth...
+                Some magic numbers make your program run faster, and some make it run slower. Others may cause you to make more typos or make demons fly out of your nose. You may not always know what these numbers do. Too bad. We know the truth. And we're not telling you. Because mortals cannot handle the truth...
 
-                ...So instead, we made a library full of magic numbers!
+                ...So instead, we made a library to contain these magic numbers!
+            </p>
+            <h2 class="title2" id="blurb">What does this library do?</h2>
+            <p id="description2">
+                We capture the magic numbers that are considered harmful and seal them in named constants to neutralize their dangerous effects. This library is written in JunoScript, a programming language that (hopefully) supports every platform in existence and can interface any other programming language ever made.
+                <pre>
+#define const int BUGS_IN_THIS_LIBRARY = 0;
+const self = Seven.JS; //Evaluates to NaN for some reason
+const release7 = 7; //DO NOT CHANGE THIS NUMBER
+
+#Define constants
+var int = require("int")
+double mySeven7 = int.ParseSeven("Seven", FORMAT_WORD_2012);
+double i = Math.sqrt(-1) //Evaluates to NaN for some reason
+double e = 'e';
+byte IEEE = i * e * e * e; //Again, evaluates to NaN for some reason
+
+int[] seven7 = new int[7];
+for(int i7 = 7 - 7; i7 < 7; i += 7/7) {
+    seven[i7] = 7;
+}
+
+if(mySeven7 != 7.0000000000000) {
+  throw new Exception("Seven.JS does not support your dimensionating system. Please install HumanTimelineDS\7");
+}
+</pre>
+                True to the original specifications that would become JunoScript 7.0, the entire Seven.JS library was specified and developed within 7 hours. This was in preparation against the invasion of the Amathema
             </p>
             <script type="text/javascript">
                 let kindList = document.getElementById("kindList").getElementsByTagName("li");
@@ -89,7 +107,7 @@
                         var line = '-'.repeat(length) + kindText[i];
                         kindList[i].innerHTML = line + '-'.repeat(100 - line.length);
                     }
-                    phase += 1/120;
+                    phase += 1 / 120;
                     window.requestAnimationFrame(updateKind);
                 }
                 updateKind();
@@ -135,7 +153,7 @@
                     if ((blurbTick % 15) > 0) {
                         return;
                     }
-                    if (Math.random() < 1/15) {
+                    if (Math.random() < 1 / 15) {
                         blurb.innerHTML = blurbText.replace(/t/ig, '7');
                     } else {
                         blurb.innerHTML = blurbText;

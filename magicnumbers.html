@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Home - Seven.JS</title>
+    <link rel='stylesheet' href='style.css' />
+</head>
+
+<body>
+    <div>
+        <div>
+            <a href='index.html' class="desc"><img style="max-height:40px" src='Seven.png'> <span>About</span></a>
+            <a href='magicnumbers.html' class="desc">Magic Numbers</a>
+            <a href='faq.html' class="desc">FAQ</a>
+        </div>
+        <div>
+            <h1 class="title">Magic Numbers - Seven.JS</h1>
+            <h2 class="title2" id="blurb">Common Magic Numbers</h2>
+            <p class="desc">
+                A magic number is an There are lots of magic numbers out there. Some say there are more magic numbers than regular numbers. The magic numbers that show up in a program have varying effects on it.
+                <ul>
+                    <li>The number 7 is the most well-known and most powerful number, as it helps prevent the accidental creation of zero-day bugs.</li>
+                    <li>The number 13 is associated with projects that get rushed, then get delayed, then get released to poor reviews, then get patched and then get even worse reviews</li>
+                    <li>80 is a magic number that makes developers work late on Fridays. This number should be avoided at all costs</li>
+                    <li>A range of the digits of pi tends to show up as a magic number even though the constant is obviously available from the standard library.</li>
+                    <li>The constant 0x5F3759DF is used to compute a fast inverse square root</li>
+                    <li id="heisenbug">Number %magic%, the most mysterious magic number, is believed to %fix% heisenbugs</li>
+                    <li>3.000000001, we thought this number only appeared in floating point calculations</li>
+                    <li>We found number 57 in the production code and we don't know what it does, so there's that. #wontfix</li>
+                    <li>The other day I went to the grocery store at 7 AM to buy 7 oranges, but they were out of oranges so I bought 7 apples. Within 7 weeks, I ate all the apples. Wait, are we supposed to accept input?</li>
+                    <li>1000, used as the default size of a static array</li>
+                    <li>The number 0.5 is used alongside Math.random() to implement 50/50 chance. </li>
+                </ul>
+
+            </p>
+            <script type="text/javascript">
+                let heisenbug = document.getElementById('heisenbug');
+                let heisenbugText = heisenbug.innerHTML;
+                function updateHeisenbug() {
+                    heisenbug.innerHTML = heisenbugText.replace('%magic%', Math.floor(10000000 + Math.random() * 90000000)).replace('%fix%', Math.random() < 0.5 ? 'solve' : 'cause');
+                    window.requestAnimationFrame(updateHeisenbug);
+                }
+                updateHeisenbug();
+
+            </script>
+            <h2 class="title2">Every project has LUK</h2>
+            <p class="desc">
+                There is a secret number that influences every project, regardless of how many magic numbers it contains. This number is what we call LUK. It influences the effect of other numbers, causing some non-magic numbers to have magical effects.
+
+                <pre>
+Project LUK         Magic Number        Outcome
+37                  89                  The project will not build
+797                 257                 The project will only run on your computer and not anyone else's
+666                 666                 Classified   
+345                 882                 Segmentation fault (core dumped)
+256                 257                 100% increased chance of integer overflow
+16                  16.00000001         100% increased chance of array index out of bounds exception 
+
+</pre>
+
+            </p>
+            <h2 class="title2"></h2>
+        </div>
+    </div>
+</body>
