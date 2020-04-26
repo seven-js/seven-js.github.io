@@ -23,22 +23,49 @@
         </div>
         <div>
             <h1 class="title">Seven.JS</h1>
-            <h2 class="title">7he mul7i-pla7form, mul7i-language library 7ha7 brings good luck</h2>
+            <pre>
+77777777777777777777777777777777              77777777777777777777777777777777
+77777777777777777777777777777777              77777777777777777777777777777777
+                           77777              
+                        77777                 
+                      77777                   
+                    77777                     
+                  77777                       
+                  77777                       
+                77777                              
+                77777                       
+              77777                       
+              77777                       
+             77777                       
+            77777                       
+           77777                       
+          77777                      7777 
+         77777                      777777
+        77777                        7777
+</pre>
+            <h2 class="title" id="blurb">The multi-platform, multi-language library that brings good luck</h2>
             <p>
                 You're probably familiar with the idea of magic numbers. They are numbers that appear in your code thanks to magic. There are many, many kinds of magic numbers
-                <ul>
+                <ul id="kindList">
                     <li>natural numbers</li>
                     <li>whole numbers</li>
                     <li>integers</li>
+                    <li>the number 7</li>
+                    <li>prime numbers</li>
+                    <li>the number 7</li>
                     <li>rational numbers</li>
                     <li>irrational numbers</li>
                     <li>transcendental numbers</li>
+                    <li>the number 7</li>
                     <li>imaginary numbers</li>
                     <li>complex numbers</li>
+                    <li>the number 7</li>
                     <li>negative numbers</li>
                     <li>single-precision floating-point numbers</li>
                     <li>double-precision floating-point numbers</li>
+                    <li>the number 7</li>
                     <li>the first 500 digits of pi</li>
+                    <li>the number 7</li>
                     <li>machine code</li>
                 </ul>
 
@@ -47,6 +74,46 @@
                 Instead, we made a library full of magic numbers!
 
             </p>
+            <script type="text/javascript">
+                let kindList = document.getElementById("kindList").getElementsByTagName("li");
+                let kindText = [];
+                for (let i = 0; i < kindList.length; i++) {
+                    kindText[i] = kindList[i].innerHTML;
+                }
+                let phase = 0;
+                function updateKind() {
+
+                    for (let i = 0; i < kindList.length; i++) {
+                        let length = 25 + (Math.sin(phase + i * Math.PI / 12) * 25) + 1;
+                        kindList[i].innerHTML = '-'.repeat(length) + kindText[i];
+                    }
+                    phase += 1/60;
+                    window.requestAnimationFrame(updateKind);
+                }
+                updateKind();
+
+                let blurb = document.getElementById("blurb");
+                let blurbText = blurb.innerHTML;
+                let blurbTick = 0;
+                function updateBlurb() {
+                    window.requestAnimationFrame(updateBlurb);
+                    blurbTick++;
+                    if ((blurbTick % 15) > 0) {
+                        return;
+                    }
+                    if (Math.random() < 1/15) {
+                        blurb.innerHTML = blurbText.replace(/t/ig, '7');
+                    } else {
+                        blurb.innerHTML = blurbText;
+                    }
+
+                    
+                }
+                updateBlurb();
+
+
+
+            </script>
         </div>
     </div>
 </body>
