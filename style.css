@@ -4,7 +4,16 @@
 .title2 {
     font: bold 20px Georgia
 }
+.bar {
+    margin-right: 20px;
+    font: 16px Georgia
+}
 
 .desc {
-    font: 16px Georgia
+    font: 16px Georgia;
+    width:800px
+}
+
+.code {
+    width:800px
 }

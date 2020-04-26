@@ -1,0 +1,118 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Page not found - Seven.JS</title>
+    <style type="text/css" media="screen">
+        body {
+            background-color: #f1f1f1;
+            margin: 0;
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        }
+
+        .container {
+            margin: 50px auto 40px auto;
+            width: 600px;
+            text-align: center;
+        }
+
+        a {
+            color: #4183c4;
+            text-decoration: none;
+        }
+
+            a:hover {
+                text-decoration: underline;
+            }
+
+        h1 {
+            width: 800px;
+            position: relative;
+            left: -100px;
+            letter-spacing: -1px;
+            line-height: 60px;
+            font-size: 60px;
+            font-weight: 100;
+            margin: 0px 0 50px 0;
+            text-shadow: 0 1px 0 #fff;
+        }
+
+        p {
+            color: rgba(0, 0, 0, 0.5);
+            margin: 20px 0;
+            line-height: 1.6;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+
+        <h1 id="header">404</h1>
+        <p id="description">OH HECK, IT'S THAT NUMBER! GO BACK!</p>
+
+        <p id="downloadDesc">
+            To install Seven.JS, please download and run the installer with Administrator privileges.
+
+            Do it now.
+        </p>
+
+        <a href="pandora.box" id="download" download></a>
+    </div>
+    <script type="text/javascript">
+        let header = document.getElementById('header');
+        let headerText = header.innerHTML;
+
+        let description = document.getElementById('description');
+        let descriptionText = description.innerHTML;
+        let index = 0;
+
+        let downloadDesc = document.getElementById('downloadDesc');
+        
+        let downloadText = downloadDesc.innerHTML;
+        downloadDesc.innerHTML = '';
+
+        let download = document.getElementById('download');
+
+        function updateHeader() {
+            if (index < 1) {
+                index += 1 / 120;
+            } else {
+                index += 1 / 10;
+            }
+            
+            let charArray = headerText.split('');
+            for (let i = 0; i < Math.min(Math.floor(index), headerText.length); i++) {
+                if (charArray[i] == ' ') {
+                    continue;
+                }
+                charArray[i] = Math.floor(Math.random() * 10);
+            }
+            header.innerHTML = charArray.join('');
+
+            charArray = descriptionText.split('');
+            for (let i = 0; i < Math.min(Math.floor(index), descriptionText.length); i++) {
+                if (charArray[i] == ' ') {
+                    continue;
+                }
+                charArray[i] = Math.floor(Math.random() * 10);
+            }
+            description.innerHTML = charArray.join('');
+
+            let index2 = index - (descriptionText.length - 3);
+            if (index2 >= 0) {
+                index += 1 / 10;
+                downloadDesc.innerHTML = downloadText.substring(0, index2);
+            }
+
+            if (index2 > downloadText.length + 1) {
+                download.innerHTML = 'Download';
+            }
+
+            window.requestAnimationFrame(updateHeader);
+        }
+        updateHeader();
+    </script>
+</body>
+</html>
