@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Home - Seven.JS</title>
+    <link rel='stylesheet' href='style.css' />
+</head>
+
+<body>
+    <div>
+        <div>
+            <a href='index.html' class="bar"><img style="max-height:40px" src='Seven.png'> <span>About</span></a>
+            <a href='magicnumbers.html' class="bar">Magic Numbers</a>
+            <a href='faq.html' class="bar">FAQ</a>
+            <a href='download.html' class="bar">Download</a>
+        </div>
+        <div>
+            <h1 class="title">Frequently Asked Questions - Seven.JS</h1>
+            <h2 class="title2">Why?</h2>
+            <p class="desc">
+                Why did we create this library? Because we are trying to encourage the safer use of magic numbers. Developers frequently resort to using magic numbers without considering the consequences of those numbers. And magic numbers do have a lot more consequences than you think. They can and will crash critical systems at the worst possible time if used without caution.
+            </p>
+            <h2 class="title2" id="Amathema1">What is the %Amathema%?</h2>
+            <p class="desc" id="Amathema2">
+                The %Amathema% is a magic number with the capability to cause sudden unforeseen catastrophes. Cosmic transmissions from beyond the galaxy, including the "Wow!" signal, have informed us about the importance of controlling magic numbers and the %Amathema%. We predict that while the Amathema is currently dormant, the use of certain magic numbers in projects with particularly low LUK will lead to the %Amathema%'s awakening.
+            </p>
+            <h2 class="title2">Are you serious?</h2>
+            <p class="desc" id="Amathema3">
+                Yes. We are serious. This is serious. There is more at stake than just your code. The %Amathema% is real.
+            </p>
+            <script type="text/javascript">
+                let a1 = document.getElementById('Amathema1');
+                let a1text = a1.innerHTML;
+                let a2 = document.getElementById('Amathema2');
+                let a2text = a2.innerHTML;
+                let a3 = document.getElementById('Amathema3');
+                let a3text = a3.innerHTML;
+
+                let tick = 0;
+                function update() {
+                    tick++;
+                    if (tick % 60 < 30) {
+                        let letters = 'Amathema';
+                        let amathema = '';
+                        for (let i = 0; i < letters.length; i++) {
+                            if (Math.random() < 0.5) {
+                                amathema += letters[i];
+                            } else {
+                                amathema = letters[i] + amathema;
+                            }
+                        }
+
+                        a1.innerHTML = a1text.replace(/%Amathema%/g, amathema);
+                        a2.innerHTML = a2text.replace(/%Amathema%/g, amathema);
+                        a3.innerHTML = a3text.replace(/%Amathema%/g, amathema);
+                    } else {
+                        a1.innerHTML = a1text.replace(/%Amathema%/g, 'Amathema');
+                        a2.innerHTML = a2text.replace(/%Amathema%/g, 'Amathema');
+                        a3.innerHTML = a3text.replace(/%Amathema%/g, 'Amathema');
+                    }
+                    window.requestAnimationFrame(update);
+                }
+                update();
+            </script>
+            <h2 class="title2">Do you accept donations?</h2>
+            <p class="desc">
+                Why, yes we do. Thanks for asking. The donation button is below.
+            </p>
+            <pre>
+    77777777777777777777777777777777777777
+  77                                      77
+77    777    77   7  7  7777  7777  7777    77
+7     7  7  7  7  77 7  7  7   77   7        7
+7     7  7  7  7  7 77  7777   77   777      7
+77    777    77   7 77  7  7   77   7777    77
+  77                                      77
+    77777777777777777777777777777777777777
+</pre>
+        </div>
+    </div>
+</body>

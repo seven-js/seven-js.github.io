@@ -17,3 +17,8 @@
 .code {
     width:800px
 }
+
+body {
+    background: linear-gradient(#b7bbec, #c6b0fe);
+
+}
